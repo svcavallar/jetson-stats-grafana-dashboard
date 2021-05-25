@@ -1,0 +1,13 @@
+[Unit]
+Description=jetson_stats_prometheus_collector service
+
+[Service]
+# Type=exec
+ExecStart=/usr/bin/python3 /usr/local/bin/jetson_stats_prometheus_collector.py --port 8000
+Restart=on-failure
+RestartSec=10s
+TimeoutStartSec=30s
+TimeoutStopSec=30s
+
+[Install]
+WantedBy=multi-user.target
